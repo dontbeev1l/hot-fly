@@ -154,6 +154,10 @@ class Game {
     constructor(color) {
         const bet = this.betByColor(color);
         if (bet > storage.get('balance')) {
+            if (storage.get('balance') === 0) {
+                storage.set('balance', 200);
+                updateBalance();
+            }
             return;
         }
         storage.set('balance', storage.get('balance') - bet);
@@ -188,9 +192,11 @@ class Game {
     }
 
     destroy() {
-        this.active = false;
-        this.oponent.destroy();
-        this.you.destroy();
+        try {
+            this.active = false;
+            this.oponent.destroy();
+            this.you.destroy();
+        } catch (e) { }
     }
 
     betByColor(color) {
