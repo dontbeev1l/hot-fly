@@ -310,3 +310,6 @@ class BarItems {
 }
 
 new BarItems();
+
+useGelBtn.addEventListener('click', (e) => { e.stopPropagation(); e.preventDefault(); useGel() })
+useGelBtn.addEventListener('touch', (e) => { e.stopPropagation(); e.preventDefault(); useGel() })
