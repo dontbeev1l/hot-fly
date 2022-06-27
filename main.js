@@ -113,7 +113,7 @@ class GameItem {
         this.speed = speed;
         this.clbk = clbk;
         this.active = true;
-        this.position = Math.round(Math.random() * 10 + 10);
+        this.position = Math.round(Math.random() * 10 + 16);
         this.element.style.top = `${100 - this.position}%`;
         this.element.style.left = `${left}%`;
         this.destroyed = false;
