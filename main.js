@@ -216,7 +216,8 @@ function updateBalance() {
 }
 
 function play(color) {
-    Array.from(document.querySelectorAll('.bar-item_active')).forEach(e => e.classList.remove('bar-item_active'))
+    Array.from(document.querySelectorAll('.bar-item_active')).forEach(e => e.classList.remove('bar-item_active'));
+    document.querySelector('.baloons-bar-wrapper').classList.remove('baloons-bar-wrapper_active');
     if (currentGame) {
         currentGame.destroy();
         currentGame = null;
@@ -271,6 +272,7 @@ class BarItems {
                     check(el.parentNode);
                 } else {
                     if (!contains) {
+                        document.querySelector('.baloons-bar-wrapper').classList.remove('baloons-bar-wrapper_active');
                         Array.from(document.querySelectorAll('.bar-item_active')).forEach(e => e.classList.remove('bar-item_active'))
                     }
                 }
@@ -284,10 +286,12 @@ class BarItems {
             const handler = (e) => {
                 e.stopPropagation();
                 if (el.classList.contains('bar-item_active')) {
-                    el.classList.remove('bar-item_active')
+                    el.classList.remove('bar-item_active');
+                    document.querySelector('.baloons-bar-wrapper').classList.remove('baloons-bar-wrapper_active');
                 } else {
                     Array.from(document.querySelectorAll('.bar-item_active')).forEach(e => e.classList.remove('bar-item_active'))
-                    el.classList.add('bar-item_active')
+                    el.classList.add('bar-item_active');
+                    document.querySelector('.baloons-bar-wrapper').classList.add('baloons-bar-wrapper_active');
                 }
             }
             el.addEventListener('click', handler);
