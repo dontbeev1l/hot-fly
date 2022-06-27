@@ -722,3 +722,47 @@
 .balon-wrapper button {
     pointer-events: none;
 }
+
+.result {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -40px;
+    color: red;
+    background: rgba(56, 56, 56, 0.65);
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+    border-radius: 20px;
+    font-family: Geometria;
+    font-size: 20px;
+    font-weight: 500;
+    color: rgba(8, 255, 166, 1);
+    z-index: 10;
+
+}
+
+@keyframes resultAnimation {
+    0% {
+        top: -40px;
+    }
+
+    10% {
+        top: 20px;
+    }
+
+    90% {
+        top: 20px;
+    }
+
+    100% {
+        top: -40px;
+    }
+}
+
+.result_active {
+    animation: resultAnimation 3000ms ease;
+}

@@ -170,9 +170,11 @@ class Game {
             if (!this.active) {
                 return;
             }
+            this.showResult(oponentName);
             this.active = false;
             storage.data.wins[oponentName] += 1;
             storage.set('wins', storage.data.wins);
+            this.oponent.destroy();
             this.you.destroy();
             drowTop();
         })
@@ -180,6 +182,8 @@ class Game {
             if (!this.active) {
                 return;
             }
+            this.showResult('You');
+            this.you.destroy();
             this.oponent.destroy();
             this.active = false;
             storage.data.wins['you']++;
@@ -190,9 +194,18 @@ class Game {
         })
     }
 
+    showResult(name) {
+        document.querySelector('.result').classList.add('result_active');
+        document.querySelector('.result').innerHTML = `${name} win!`;
+        setTimeout(() => {
+            document.querySelector('.result').classList.remove('result_active');
+        }, 3000);
+    }
+
     destroy() {
         try {
             this.active = false;
+            currentGame = null;
             this.oponent.destroy();
             this.you.destroy();
         } catch (e) { }
