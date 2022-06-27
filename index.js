@@ -11,5 +11,8 @@ const modulesLoader = new ModulesLoader();
 modulesLoader
     .loadModule('background')
     .loadModule('view')
+    .loadModule('storage')
+    .loadModule('nicknames')
     .loadModule('range')
     .onload('./main.js');
+    

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="stylesheet" href="./fonts/geometria/style.css">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./shop.css">
     <title>Hot Fly</title>
 </head>
 
@@ -106,17 +107,35 @@
         <div class="menu_buttons">
             <img src="./img/logo.png" alt="Hot Air" class="menu-logo">
             <button class="button button_menu" onclick="playGame()">Play Game</button>
-            <button class="button button_menu">Shop</button>
+            <button class="button button_menu" onclick="openShop()">Shop</button>
         </div>
         <img src="./img/b_purple.svg" class="menu_baloon menu_baloon_purple" alt="b_purple">
         <img src="./img/b_red.svg" class="menu_baloon menu_baloon_red" alt="b_red">
         <img src="./img/b_teal.svg" class="menu_baloon menu_baloon_teal" alt="b_teal">
     </div>
     <div class="view view_game">
+        <div class="game-field">
+        </div>
+
+        <img src="./img/finish.svg" alt="finis" class="finish">
+
+        <div class="top">
+            <div class="top-header">
+                <img src="./img/star.svg" alt="star">
+                Top Winnings
+            </div>
+            <div class="top-items">
+            </div>
+        </div>
+
+        <div class="balon-wrapper" onclick="useGel()">
+            <img src="./img/balon.svg" alt="">
+            <div class="gas-count"></div>
+            <div class="gas-count-value">55%</div>
+            <button class="button balon-wrapper__button">Use</button>
+        </div>
         <div class="baloons-bar-wrapper">
             <div class="baloons-bar">
-
-
                 <div class="bar-item bar-item_yellow">
                     <div class="bar-item__price">
                         <img src="./img/coin.png" alt="coin" class="bar-item__coin">
@@ -130,13 +149,17 @@
                             <img src="./img/b_yellow.svg" alt="b_yellow" class="more__baloon">
                             <img src="./img/b_yellow.svg" alt="b_yellow" class="more__baloon">
                         </div>
-                        <div class="more__range range">
+                        <!-- <div class="more__range range">
                             <input type="number" value="1" class="range__input">
                             <div class="range__control control_minus">-</div>
                             <div class="range__control control_plus">+</div>
                             <span class="range__value">1</span>
+                        </div> -->
+                        <div class="more__price">
+                            <img src="./img/coin.png" alt="coin" class="more__price-coin">
+                            <span class="more__price-value">5</span>
                         </div>
-                        <button class="go-button">GO</button>
+                        <button class="go-button" onclick="play('yellow')">GO</button>
                     </div>
 
 
@@ -155,13 +178,17 @@
                             <img src="./img/b_teal.svg" alt="b_teal" class="more__baloon">
                             <img src="./img/b_teal.svg" alt="b_teal" class="more__baloon">
                         </div>
-                        <div class="more__range range">
+                        <!-- <div class="more__range range">
                             <input type="number" value="1" class="range__input">
                             <div class="range__control control_minus">-</div>
                             <div class="range__control control_plus">+</div>
                             <span class="range__value">1</span>
+                        </div> -->
+                        <div class="more__price">
+                            <img src="./img/coin.png" alt="coin" class="more__price-coin">
+                            <span class="more__price-value">10</span>
                         </div>
-                        <button class="go-button">GO</button>
+                        <button class="go-button" onclick="play('teal')">GO</button>
                     </div>
 
 
@@ -180,13 +207,17 @@
                             <img src="./img/b_red.svg" alt="b_red" class="more__baloon">
                             <img src="./img/b_red.svg" alt="b_red" class="more__baloon">
                         </div>
-                        <div class="more__range range">
+                        <!-- <div class="more__range range">
                             <input type="number" value="1" class="range__input">
                             <div class="range__control control_minus">-</div>
                             <div class="range__control control_plus">+</div>
                             <span class="range__value">1</span>
+                        </div> -->
+                        <div class="more__price">
+                            <img src="./img/coin.png" alt="coin" class="more__price-coin">
+                            <span class="more__price-value">20</span>
                         </div>
-                        <button class="go-button">GO</button>
+                        <button class="go-button" onclick="play('red')">GO</button>
                     </div>
 
 
@@ -205,13 +236,17 @@
                             <img src="./img/b_purple.svg" alt="b_purple" class="more__baloon">
                             <img src="./img/b_purple.svg" alt="b_purple" class="more__baloon">
                         </div>
-                        <div class="more__range range">
+                        <!-- <div class="more__range range">
                             <input type="number" value="1" class="range__input">
                             <div class="range__control control_minus">-</div>
                             <div class="range__control control_plus">+</div>
                             <span class="range__value">1</span>
+                        </div> -->
+                        <div class="more__price">
+                            <img src="./img/coin.png" alt="coin" class="more__price-coin">
+                            <span class="more__price-value">50</span>
                         </div>
-                        <button class="go-button">GO</button>
+                        <button class="go-button" onclick="play('purple')">GO</button>
                     </div>
                 </div>
 
@@ -228,19 +263,46 @@
                             <img src="./img/b_blue.svg" alt="b_blue" class="more__baloon">
                             <img src="./img/b_blue.svg" alt="b_blue" class="more__baloon">
                         </div>
-                        <div class="more__range range">
+                        <!-- <div class="more__range range">
                             <input type="number" value="1" class="range__input">
                             <div class="range__control control_minus">-</div>
                             <div class="range__control control_plus">+</div>
                             <span class="range__value">1</span>
+                        </div> -->
+                        <div class="more__price">
+                            <img src="./img/coin.png" alt="coin" class="more__price-coin">
+                            <span class="more__price-value">100</span>
                         </div>
-                        <button class="go-button">GO</button>
+                        <button class="go-button" onclick="play('blue')">GO</button>
                     </div>
 
 
                 </div>
             </div>
         </div>
+    </div>
+    <div class="view view_shop">
+        <h3 class="shop__header">Shop</h3>
+        <div class="shop-items-wrapper">
+            <div class="shop-items">
+                <div class="shop-item">
+                    <img src="./img/gas.svg" alt="gas" class="shop-item__image">
+                    <div class="shop-item__range range" data-processed>
+                        <input type="number" value="1" class="range__input">
+                        <div class="range__control control_minus">-</div>
+                        <div class="range__control control_plus" onclick="buyGel()">+</div>
+                        <span class="range__value" id="gelCount">1</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <img src="./img/home.svg" alt="home" class="home" onclick="openMenu()">
+
+    <div class="purple-block balance">
+        <div class="purple-block__text">Balance</div>
+        <div class="purple-block__value" id="balanceValue">2000</div>
     </div>
 
     <script src="./modules/modules.js"></script>
