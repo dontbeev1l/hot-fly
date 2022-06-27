@@ -410,8 +410,8 @@
     font-weight: bold;
     font-size: 18px;
     text-align: center;
-    line-height: 42px;
-    text-transform: uppercase;
+    padding: 0;
+    line-height: 41px;
     cursor: pointer;
 }
 
