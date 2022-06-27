@@ -561,6 +561,7 @@
     bottom: 120px;
     right: -200px;
     transition: right 300ms ease;
+    z-index: 8;
 }
 
 .view_active .balon-wrapper {
