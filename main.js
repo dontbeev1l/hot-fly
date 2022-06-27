@@ -1,5 +1,5 @@
 const backgrounds = new BackgroundsModule(['menu', 'game'], 'menu');
-
+console.log('Version 1');
 const GEL_PRICE = 10;
 
 const nicks = new Nicknmes(12);
@@ -88,7 +88,6 @@ function openShop() {
 function drowTop() {
     let list = Object.entries(storage.get('wins'));
     list = list.sort((a, b) => b[1] - a[1]);
-    console.log(list);
 
     const topItemsEl = document.querySelector('.top-items');
     topItemsEl.innerHTML = '';
@@ -217,7 +216,6 @@ function updateGelCont() {
 }
 
 function updateBalance() {
-    console.log('BALANCE', storage.get('balance'));
     balanceValue.innerHTML = storage.get('balance');
 }
 
