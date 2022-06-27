@@ -718,3 +718,7 @@
 .view_active .finish {
     top: 20vh;
 }
+
+.balon-wrapper button {
+    pointer-events: none;
+}
